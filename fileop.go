@@ -45,6 +45,7 @@ BEGINFOR:
 	fmt.Printf("%s", bytes)
 }
 
+// try...catch...module
 func Try(fun func(), handler func(interface{})) {
 	defer func() {
 		if err := recover(); err != nil {
