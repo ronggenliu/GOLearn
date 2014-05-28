@@ -1,6 +1,7 @@
 package main
 
 import (
+	// "bufio"
 	"fmt"
 	"log"
 	"os"
@@ -20,6 +21,20 @@ func main() {
 			fmt.Println("handle error: ", e)
 		}
 	}()
+
+	// read the file via Reader
+	// r := bufio.NewReader(f)
+	// for {
+	// 	line, _, err := r.ReadLine()
+	// 	if err == nil {
+	// 		fmt.Println(string(line))
+	// 	} else {
+	// 		fmt.Errorf("error: %s", err)
+	// 	}
+	// 	if line == nil {
+	// 		break
+	// 	}
+	// }
 	if err != nil {
 		panic(err)
 	}
@@ -31,6 +46,7 @@ func main() {
 	var er error
 	_, er = f.Read(bytes)
 	if er != nil {
+		log.Println("error when read buffer")
 		panic(er)
 	}
 BEGINFOR:
@@ -42,7 +58,7 @@ BEGINFOR:
 			break BEGINFOR
 		}
 	}
-	fmt.Printf("%s", bytes)
+	// fmt.Printf("%s", bytes)
 }
 
 // try...catch...model
